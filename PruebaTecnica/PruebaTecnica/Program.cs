@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PruebaTecnica
+﻿namespace PruebaTecnica
 {
     class Program
     {
@@ -98,12 +96,11 @@ namespace PruebaTecnica
                 new Car() {Brand = "bmw", Model = 2021, Color ="Blanco"},
                 new Car() {Brand = "bmw", Model = 2020, Color ="Blanco"}
             };
+            int[] vect = { 1, 1, 2, 3, 5, 8, 13 };
 
             Cars(cars);
 
             Console.WriteLine(Cadena("asdfjj"));
-
-            int[] vect = { 1, 1, 2, 3, 5, 8, 13 };
 
             Console.WriteLine(Fibonacci(vect));
 
@@ -116,7 +113,7 @@ namespace PruebaTecnica
         public string Brand { get; set; }
         public int Model { get; set; }
         public string Color { get; set; }
-        
+
     }
 }
 
