@@ -1,4 +1,9 @@
-﻿namespace PruebaTecnica
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.Text;
+
+namespace PruebaTecnica
 {
     class Program
     {
@@ -87,6 +92,7 @@
             return text;
         }
 
+
         static void Main(string[] args)
         {
             List<Car> cars = new List<Car>()
@@ -105,6 +111,23 @@
             Console.WriteLine(Fibonacci(vect));
 
             Console.WriteLine(Pares(vect));
+
+            
+            //Consulta de api
+
+            using (var client = new HttpClient())
+            {
+                string url = "https://rickandmortyapi.com/api/character";
+                client.DefaultRequestHeaders.Clear();
+                var response = client.GetAsync(url).Result;
+
+                var res = response.Content.ReadAsStringAsync().Result;
+                JObject resp = JObject.Parse(res);
+                foreach(var item in resp["results"])
+                {
+                    Console.WriteLine(item["name"]);
+                }  
+            }
         }
     }
 
@@ -115,6 +138,9 @@
         public string Color { get; set; }
 
     }
+
+
+
 }
 
 
