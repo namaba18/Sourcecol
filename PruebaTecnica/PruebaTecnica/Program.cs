@@ -17,6 +17,27 @@ namespace PruebaTecnica
             }
         }
 
+        static string Cadena(string cad)
+        {
+            string cad2 = "";
+            if (cad.Length <= 20)
+            {
+                for (int i = 0; i < cad.Length; i++)
+                {
+                    cad2 += cad[i];
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    cad2 += cad[i];
+                }
+                cad2 += "...";
+            }
+            return cad2;
+        }
+
         static void Main(string[] args)
         {
             List<Car> cars = new List<Car>()
@@ -28,7 +49,9 @@ namespace PruebaTecnica
             };
 
             Cars(cars);
-            
+
+            Console.WriteLine(Cadena("asdfjj"));
+
         }
     }
 
@@ -41,25 +64,5 @@ namespace PruebaTecnica
     }
 }
 
-Console.WriteLine(Cadena("asdfjj"));
 
-string Cadena(string cad)
-{
-    string cad2 = "";
-    if (cad.Length <= 20)
-    {
-        for (int i = 0; i < cad.Length; i++)
-        {
-            cad2 += cad[i];
-        }
-    }
-    else
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            cad2 += cad[i];
-        }
-        cad2 += "...";
-    }
-    return cad2;
-}
+
